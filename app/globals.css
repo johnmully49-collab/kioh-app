@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --background: #071312;
+  --foreground: #f3f7f6;
+  --surface: #0d1c1a;
+  --surface-raised: #122522;
+  --accent: #67e8c1;
+  --accent-strong: #2dd4a5;
+  --muted: #9aafaa;
+  --border: rgba(212, 236, 229, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  color: #04110e;
+  background: rgba(103, 232, 193, 0.75);
+}
+
+:where(button, a, input, select, textarea) {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:where(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+.surface-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(18, 37, 34, 0.92), rgba(10, 26, 24, 0.88));
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+}
+
+.interactive-card {
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.interactive-card:hover {
+  border-color: rgba(103, 232, 193, 0.34);
+  transform: translateY(-2px);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #f4f8f6;
+    --foreground: #11241f;
+    --surface: #ffffff;
+    --surface-raised: #e9f2ee;
+    --accent: #078262;
+    --accent-strong: #056b51;
+    --muted: #52665f;
+    --border: rgba(20, 57, 45, 0.13);
+  }
+
+  body {
+    background: var(--background) !important;
+    color: var(--foreground) !important;
+  }
+
+  main[class*="bg-slate-950"],
+  section[class*="bg-slate-950"] {
+    background-color: transparent !important;
+    color: var(--foreground) !important;
+  }
+
+  #identity {
+    background: #edf4f0;
+  }
+
+  #opportunities,
+  #journey {
+    background: #f7faf8;
+  }
+
+  #mentorship {
+    background: #edf5f1;
+  }
+
+  #stakeholders {
+    background: #ffffff;
+  }
+
+  #join {
+    background: #f0f6f2;
+  }
+
+  [class*="bg-[#0b1c19]"],
+  [class*="bg-[#10221f]"],
+  [class*="bg-[#0c1d1a]"],
+  [class*="bg-[#112723]"] {
+    background-color: #ffffff !important;
+  }
+
+  header nav[class*="bg-slate-950"] {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: var(--border) !important;
+    box-shadow: 0 12px 40px rgba(16, 47, 37, 0.08) !important;
+  }
+
+  [class~="bg-slate-950"],
+  [class~="bg-slate-900"],
+  [class*="bg-slate-900/"],
+  [class*="bg-slate-950/"] {
+    background-color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  [class*="bg-slate-800"] {
+    background-color: #e7f0ec !important;
+  }
+
+  [class~="text-white"] {
+    color: #132720 !important;
+  }
+
+  [class*="text-slate-300"] {
+    color: #40574e !important;
+  }
+
+  [class*="text-slate-400"],
+  [class*="text-slate-500"] {
+    color: #5c7068 !important;
+  }
+
+  [class*="text-slate-600"] {
+    color: #77877f !important;
+  }
+
+  [class*="text-teal-300"],
+  [class*="text-teal-200"] {
+    color: #08785b !important;
+  }
+
+  [class*="text-teal-400"] {
+    color: #08785b !important;
+  }
+
+  [class*="text-emerald-100"],
+  [class*="text-emerald-200"],
+  [class*="text-emerald-300"] {
+    color: #08785b !important;
+  }
+
+  [class*="text-cyan-300"] {
+    color: #087a80 !important;
+  }
+
+  [class*="text-amber-300"] {
+    color: #8a5a00 !important;
+  }
+
+  [class*="text-violet-300"] {
+    color: #6642a5 !important;
+  }
+
+  [class*="text-rose-400"] {
+    color: #b4233c !important;
+  }
+
+  [class*="border-white/"] {
+    border-color: rgba(20, 57, 45, 0.13) !important;
+  }
+
+  [class*="bg-white/"] {
+    background-color: rgba(18, 63, 46, 0.045) !important;
+  }
+
+  [class*="placeholder-slate-"]::placeholder {
+    color: #71837b !important;
+  }
+
+  input,
+  select,
+  textarea {
+    color: #132720 !important;
+    border-color: rgba(20, 57, 45, 0.18) !important;
+    background-color: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  option {
+    color: #132720;
+    background: #fff;
+  }
+
+  .surface-card,
+  .interactive-card {
+    border-color: rgba(20, 57, 45, 0.12);
+    background: linear-gradient(145deg, #fff, #f1f7f4);
+    box-shadow: 0 18px 60px rgba(26, 66, 50, 0.08);
+  }
+
+  .interactive-card:hover {
+    border-color: rgba(7, 130, 98, 0.36);
+  }
+
+  .bg-gradient-to-r.from-emerald-300,
+  [class*="from-emerald-300"] {
+    color: #062b20 !important;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-bg 8s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 639px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
